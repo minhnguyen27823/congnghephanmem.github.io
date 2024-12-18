@@ -1,0 +1,97 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Layout for book content */
+.book-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Book Image */
+.book-image {
+    flex: 1;
+    max-width: 300px;
+    margin-right: 20px;
+}
+
+.book-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Book Info */
+.book-info {
+    flex: 2;
+    max-width: 650px;
+}
+
+/* Book title and author */
+.book-title {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.book-author {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Book description */
+.book-description p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* Add hover effect to book image */
+.book-image img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Media Queries for smaller devices */
+@media (max-width: 768px) {
+    .book-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-image {
+        margin-bottom: 20px;
+    }
+
+    .book-info {
+        text-align: center;
+    }
+}
