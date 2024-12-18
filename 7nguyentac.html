@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 nguyên tắc bất biến để xây dựng doanh nghiệp nhỏ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .rating {
+            display: flex;
+            direction: row;
+            font-size: 25px;
+        }
+        .rating span {
+            cursor: pointer;
+        }
+        .comment-section {
+            margin-top: 30px;
+        }
+        .comment-box {
+            width: 100%;
+            height: 80px;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .comments-list {
+            margin-top: 20px;
+        }
+        .comment {
+            border-bottom: 1px solid #eee;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="book-content">
+            <div class="book-image">
+                <img src="7nguyentac.jpg" alt="Ảnh sách">
+            </div>
+            <div class="book-info">
+                <h1 class="book-title">Tên Sách: 7 NGUYÊN TẮC BẤT BIẾN ĐỂ XÂY DỰNG DOANH NGHIỆP NHỎ
+                </h1>
+                <p class="book-author">Tác giả: Steven S. Little</p>
+                <div class="book-description">
+                    <p>Để khởi sự và phát triển thành công một doanh nghiệp nhỏ, nhất định cần chú trọng đúng mức các nguyên tắc nền tảng. Những nguyên tắc đó là gì? Steven S. Little sẽ giúp bạn trả lời câu hỏi hóc búa này thông qua cuốn sách nổi tiếng của ông: 7 nguyên tắc bất biến để xây dựng doanh nghiệp nhỏ. Với kinh nghiệm của một nhà lãnh đạo lâu năm và cái nhìn của một nhà nghiên cứu, tác giả hiểu rõ đâu là những nhân tố lý thuyết và thực tế mà doanh nghiệp nhỏ không thể bỏ qua.</p>
+
+<p>7 nguyên tắc bất biến để xây dựng doanh nghiệp nhỏ chính là tổng kết quan trọng từ những hiểu biết và kinh nghiệm sâu sắc đó. Đây là những lời khuyên nhằm giúp các doanh nghiệp nhỏ giải quyết những vấn đề quan trọng nhất liên quan đến kế hoạch kinh doanh, đội ngũ nhân viên, khách hàng, công nghệ, thị trường…</p>
+
+<p>Đồng thời, đó cũng là những chiến lược và chiến thuật giúp doanh nghiệp nhỏ duy trì các lợi thế cạnh tranh và đứng vững trên thị trường luôn luôn biến đổi.</p>
+
+<p>Bên cạnh đó, cuốn sách còn đưa ra những giải pháp có tính thực tiễn cao với những bài kiểm tra tính cách doanh nhân và các ví dụ thực tế. Chắc chắn bạn sẽ tìm thấy ở đây những gợi ý hữu ích và thiết thực để tìm ra con đường phát triển tối ưu cho doanh nghiệp của mình.</p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Chức năng đánh giá sao -->
+        <div class="rating">
+            <span class="star" onclick="setRating(1)">&#9733;</span>
+            <span class="star" onclick="setRating(2)">&#9733;</span>
+            <span class="star" onclick="setRating(3)">&#9733;</span>
+            <span class="star" onclick="setRating(4)">&#9733;</span>
+            <span class="star" onclick="setRating(5)">&#9733;</span>
+        </div>
+        <p id="rating-value">Bạn chưa đánh giá.</p>
+
+        <!-- Chức năng bình luận -->
+        <div class="comment-section">
+            <h2>Bình luận</h2>
+            <textarea class="comment-box" id="comment-input" placeholder="Viết bình luận của bạn..."></textarea>
+            <button onclick="addComment()">Đăng bình luận</button>
+
+            <div class="comments-list" id="comments-list"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentRating = 0;
+
+        // Hàm để thiết lập đánh giá sao
+        function setRating(rating) {
+            currentRating = rating;
+            document.getElementById('rating-value').innerText = 'Bạn đã đánh giá: ' + rating + ' sao';
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.style.color = 'gold';
+                } else {
+                    star.style.color = 'gray';
+                }
+            });
+        }
+
+        // Hàm để thêm bình luận
+        function addComment() {
+            const commentInput = document.getElementById('comment-input');
+            const commentText = commentInput.value.trim();
+
+            if (commentText) {
+                const commentList = document.getElementById('comments-list');
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+                newComment.innerHTML = `
+                    <p><strong>Bạn:</strong> ${commentText}</p>
+                `;
+                commentList.appendChild(newComment);
+                commentInput.value = ''; // Xóa nội dung input sau khi đăng
+            }
+        }
+    </script>
+
+</body>
+</html>
